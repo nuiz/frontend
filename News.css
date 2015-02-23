@@ -1,0 +1,26 @@
+.body {
+    height: 100%;
+    width: 100%;
+    background: #FFFFFF;
+    background-size: 100%;
+    z-index: 0;
+}
+.bgNews{
+    position: absolute;
+    top: 0;
+    left: 77px;
+    width: 1118px;
+    height: 628px;
+    background: url(images/bgnews.jpg);
+    background-size: 100%;
+}
+
+.sum{
+    position: absolute;
+    top: 38px;
+    left: 140px;
+    width: 165px;
+    height: 52px;
+    background: url(images/News/sumnews.png);
+    background-size: 100%;
+}

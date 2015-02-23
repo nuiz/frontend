@@ -1,0 +1,207 @@
+.body {
+    height: 100%;
+    width: 100%;
+    background: #FFFFFF;
+    background-size: 100%;
+    z-index: 0;
+}
+
+.bgcenter {
+    position: absolute;
+    top: 0;
+    left: 77px;
+    width: 1118px;
+    height: 628px;
+    background: url(images/bg.jpg);
+    background-size: 100%;
+}
+
+.LabelKM {
+    position: absolute;
+    top: 0;
+    left: 100px;
+    width: 800px;
+    height: 540px;
+    background: url(images/KM/LBKM.png);
+    background-size: 100%;
+}
+
+.backHM {
+    position: absolute;
+    top: 520px;
+    left: 80px;
+    width: 100px;
+    height: 100px;
+    background: url(images/backhome.png);
+    background-size: 100%;
+}
+
+.centerKM {
+    position: absolute;
+    top: 0px;
+    left: 330px;
+    width: 350px;
+    height: 90px;
+    background: url(images/KM/centerkm.png);
+    background-size: 100%;
+}
+
+.buttonleft {
+    position: absolute;
+    top: 465px;
+    left: 143px;
+    width: 40px;
+    height: 40px;
+    background: url(images/KM/no.png);
+    background-size: 100%;
+}
+
+.buttonright {
+    position: absolute;
+    top: 465px;
+    right: 400px;
+    width: 40px;
+    height: 40px;
+    background: url(images/KM/rightno.png);
+    background-size: 100%;
+}
+
+.clickcenter {
+    position: absolute;
+    top: 140px;
+    left: 85px;
+    width: 700px;
+    height: 25px;
+    color: #F4D799;
+    font-size: 36px;
+}
+
+.human {
+    position: absolute;
+    top: 285px;
+    left: 195px;
+    width: 135px;
+    height: 138px;
+    background: url(images/KM/13.png);
+    background-size: 100%;
+}
+
+.humanmsg {
+    position: absolute;
+    top: -60px;
+    left: 72px;
+    width: 40px;
+    height: 55px;
+    background: url(images/KM/msg.png);
+    background-size: 100%;
+}
+
+.humanText {
+    position: absolute;
+    top: 180px;
+    width: 170px;
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+    color: #FDE4AF;
+}
+
+.print {
+    position: absolute;
+    top: 310px;
+    left: 370px;
+    width: 130px;
+    height: 112px;
+    background: url(images/KM/10.png);
+    background-size: 100%;
+}
+
+.printmsg {
+    position: absolute;
+    top: -55px;
+    left: 71px;
+    width: 40px;
+    height: 55px;
+    background: url(images/KM/msg.png);
+    background-size: 100%;
+}
+
+.printText {
+    position: absolute;
+    top: 155px;
+    width: 170px;
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+    color: #FDE4AF;
+}
+
+.research {
+    position: absolute;
+    top: 321px;
+    left: 538px;
+    width: 145px;
+    height: 100px;
+    background: url(images/KM/11.png);
+    background-size: 100%;
+}
+
+.researchmsg {
+    position: absolute;
+    top: -53px;
+    left: 80px;
+    width: 40px;
+    height: 55px;
+    background: url(images/KM/msg.png);
+    background-size: 100%;
+}
+
+.researchText {
+    position: absolute;
+    top: 143px;
+    width: 170px;
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+    color: #FDE4AF;
+}
+
+.tobacco {
+    position: absolute;
+    top: 310px;
+    left: 716px;
+    width: 115px;
+    height: 111px;
+    background: url(images/KM/12.png);
+    background-size: 100%;
+}
+
+.tobaccomsg {
+    position: absolute;
+    top: -60px;
+    left: 38px;
+    width: 40px;
+    height: 55px;
+    background: url(images/KM/msg.png);
+    background-size: 100%;
+}
+
+.tobaccoText {
+    position: absolute;
+    top: 155px;
+    width: 120px;
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+    color: #FDE4AF;
+}
+
+.line {
+    position: absolute;
+    top: 440px;
+    left: 145px;
+    width: 700px;
+    height: 27px;
+    background: url(images/KM/8.png);
+    background-size: 100%;
+}

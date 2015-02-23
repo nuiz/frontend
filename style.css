@@ -1,0 +1,119 @@
+html, body {
+    height: 660px;
+    width: 1330px;
+    padding: 0;
+    margin: 0;
+}
+.body{
+    height: 100%;
+    width: 100%;
+    background: #FFFFFF;
+    background-size: 100%;
+    z-index: 0;
+}
+.bgdoor{
+    position: absolute;
+    top: 0;
+        left: 77px;
+        width: 1118px;
+        height: 628px;
+    background: url(images/bgnews.jpg);
+    background-size: 100%;
+}
+.nav-right{
+    position: absolute;
+    top: 3px;
+    right: 34px;
+    width: 250px;
+    height: 786px;
+}
+.nav-right2 {
+    position: absolute;
+    top: 0px;
+    right: 44px;
+    width: 78%;
+    height: 67%;
+    background: url(images/label.png);
+    background-size: 100%;
+    z-index: 1;
+}
+.nav-right3{
+    margin-top: 210px;
+    text-align: center;
+}
+.page_counter{
+    position: absolute;
+    top: 110px;
+    left: -49px;
+    width: 80px;
+    height: 150px;
+    background: url(images/Login_n.png);
+    background-size: 280%;
+}
+.statistic{
+    position: absolute;
+    bottom: 138px;
+    right: 28px;
+    width: 229px;
+    height: 177px;
+    background: url(images/stat_1.png);
+    background-size: 100%;
+    z-index: 0;
+}
+.Logo_II{
+    position: absolute;
+    top: 5px;
+    right: 123px;
+    width: 46px;
+    height: 57px;
+    background: url(images/Logo_II.png);
+    background-size: 100%;
+}
+.logo_leaf{
+    position: absolute;
+    bottom: 273px;
+    right: 119px;
+    width: 130px;
+    height: 72px;
+    background: url(images/logo1.png);
+    background-size: 100%;
+    z-index: 3;
+}
+.glass{
+    position: absolute;
+    bottom: 305px;
+    right: 208px;
+    width: 38px;
+    height: 25px;
+    background: url(images/logo2.png);
+    background-size: 100%;
+    z-index: 3;
+}
+.title{
+    position: absolute;
+    top: 44px;
+    left: 128px;
+    color: #FFFFFF;
+
+}
+.text{
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+}
+
+.statistic2{
+    color: white;
+    font-size: 20px;
+    margin-top: 89px;
+    text-align: center;
+}
+
+.text_stat{
+    font-size: 12px;
+    text-align: center;
+}
+
+.number{
+    font-size: 25px;
+}

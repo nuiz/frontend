@@ -1,0 +1,145 @@
+.body {
+    height: 100%;
+    width: 100%;
+    background: #FFFFFF;
+    background-size: 100%;
+    z-index: 0;
+}
+
+.bg_faq {
+    position: absolute;
+    top: 0;
+    left: 77px;
+    width: 1118px;
+    height: 628px;
+    background: url(images/bg.jpg);
+    background-size: 100%;
+}
+
+.Ans {
+    position: absolute;
+    top: 0;
+    left: 77px;
+    width: 1150px;
+    height: 525px;
+    background: url(images/Ans.png);
+    background-size: 100%;
+}
+
+.Ans_prs {
+    position: absolute;
+    top: 383px;
+    left: 72px;
+    width: 261px;
+    height: 25px;
+    color: #F49647;
+    font-size: 36px;
+}
+
+.logo_leafFAQ {
+    position: absolute;
+    top: 125px;
+    left: 155px;
+    width: 500px;
+    height: 280px;
+    background: url(images/logo1.png);
+    background-size: 100%;
+}
+
+.glassFAQ {
+    position: absolute;
+    top: 190px;
+    left: 180px;
+    width: 115px;
+    height: 78px;
+    background: url(images/logo2.png);
+    background-size: 100%;
+}
+
+.SearchQ {
+    position: absolute;
+    top: -39px;
+    left: 75px;
+    width: 1200px;
+    height: 525px;
+    background: url(images/SearchQ.png);
+    background-size: 100%;
+}
+
+.LabelQ {
+    position: absolute;
+    top: 0;
+    left: 495px;
+    width: 380px;
+    height: 278px;
+    background: url(images/LabelQcopy.png);
+    background-size: 100%;
+    z-index: 2;
+}
+
+.Qus {
+    position: absolute;
+    top: 170px;
+    left: 8px;
+    color: #F49647;
+    font-size: 21px;
+}
+
+.LabelQI {
+    position: absolute;
+    top: 185px;
+    left: 495px;
+    width: 380px;
+    height: 278px;
+    background: url(images/LabelQcopy.png);
+    background-size: 100%;
+    z-index: 1;
+}
+
+.QusI {
+    position: absolute;
+    top: 170px;
+    left: 8px;
+    color: #F49647;
+    font-size: 21px;
+}
+
+.LabelQII {
+    position: absolute;
+    top: 367px;
+    left: 495px;
+    width: 380px;
+    height: 278px;
+    background: url(images/LabelQcopy.png);
+    background-size: 100%;
+}
+
+.QusII {
+    position: absolute;
+    top: 175px;
+    left: 8px;
+    width: 400px;
+    height: 25px;
+    color: #F49647;
+    font-size: 21px;
+}
+
+.backH {
+    position: absolute;
+    bottom: 10px;
+    left: 94px;
+    width: 100px;
+    height: 100px;
+    background: url(images/backhome.png);
+    background-size: 100%;
+}
+
+.LBfaq {
+    position: absolute;
+    top: 0;
+    left: 547px;
+    width: 275px;
+    height: 102px;
+    background: url(images/faq.png);
+    background-size: 100%;
+}

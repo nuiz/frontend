@@ -1,0 +1,27 @@
+.body{
+    height: 100%;
+    width: 100%;
+    background: #FFFFFF;
+    background-size: 100%;
+}
+
+.bgSubPage {
+    position: absolute;
+    top: 0;
+    left: 85px;
+    width: 1114px;
+    height: 622px;
+    background: url(images/Ebook/bgsubpage.jpg);
+    background-size: 100%;
+}
+
+.LBbook{
+    position: absolute;
+    top: -62px;
+    right: -3px;
+    width: 1100px;
+    height: 160px;
+    background: url(images/Ebook/labelebook.png);
+    background-size: 100%;
+}
+

@@ -1,0 +1,172 @@
+.bg_expert {
+    position: absolute;
+    top: 0;
+    left: 85px;
+    width: 1114px;
+    height: 622px;
+    background: url(images/BGexpert.jpg);
+    background-size: 100%;
+}
+
+.label_ep {
+    position: absolute;
+    top: 0px;
+    left: 120px;
+    width: 273px;
+    height: 91px;
+    background: url(images/3.png);
+    background-size: 100%;
+}
+
+.circle {
+    position: absolute;
+    top: 145px;
+    left: 264px;
+    width: 450px;
+    height: 450px;
+    background: url(images/2.png);
+    background-size: 100%;
+}
+
+.back_home {
+    position: absolute;
+    bottom: 10px;
+    left: 94px;
+    width: 100px;
+    height: 100px;
+    background: url(images/backhome.png);
+    background-size: 100%;
+}
+
+.mode {
+    position: absolute;
+    top: 252px;
+    right: 310px;
+    width: 250px;
+    height: 106px;
+    background: url(images/4.png);
+    background-size: 100%;
+}
+
+.EP_laws {
+    position: absolute;
+    top: 115px;
+    left: 292px;
+    color: #EFD0B6;
+    font-size: 14px;
+    border-width: 1px;
+    border-color: #CFA588;
+    border-style: solid;
+}
+
+.EP_Gen {
+    position: absolute;
+    top: 52px;
+    left: 435px;
+    color: #EFD0B6;
+    font-size: 14px;
+    border-width: 1px;
+    border-color: #CFA588;
+    border-style: solid;
+}
+
+.EP_Print {
+    position: absolute;
+    top: 90px;
+    left: 650px;
+    color: #EFD0B6;
+    font-size: 14px;
+    border-width: 1px;
+    border-color: #CFA588;
+    border-style: solid;
+}
+
+.EP_Med {
+    position: absolute;
+    top: 212px;
+    right: 367px;
+    color: #EFD0B6;
+    font-size: 14px;
+    border-width: 1px;
+    border-color: #CFA588;
+    border-style: solid;
+
+}
+
+.EP_Craft {
+    position: absolute;
+    top: 450px;
+    right: 382px;
+    color: #EFD0B6;
+    font-size: 14px;
+    border-width: 1px;
+    border-color: #CFA588;
+    border-style: solid;
+}
+
+.EP_Research {
+    position: absolute;
+    top: 555px;
+    right: 446px;
+    color: #EFD0B6;
+    font-size: 14px;
+    border-width: 1px;
+    border-color: #CFA588;
+    border-style: solid;
+
+}
+
+.EP_Account {
+    position: absolute;
+    top: 588px;
+    left: 415px;
+    color: #EFD0B6;
+    font-size: 14px;
+    border-width: 1px;
+    border-color: #CFA588;
+    border-style: solid;
+}
+
+.EP_Product {
+    position: absolute;
+    top: 580px;
+    left: 200px;
+    color: #EFD0B6;
+    font-size: 14px;
+    border-width: 1px;
+    border-color: #CFA588;
+    border-style: solid;
+}
+
+.EP_Admin {
+    position: absolute;
+    top: 465px;
+    left: 155px;
+    color: #EFD0B6;
+    font-size: 14px;
+    border-width: 1px;
+    border-color: #CFA588;
+    border-style: solid;
+}
+
+.EP_IT {
+    position: absolute;
+    top: 315px;
+    left: 114px;
+    color: #EFD0B6;
+    font-size: 14px;
+    border-width: 1px;
+    border-color: #CFA588;
+    border-style: solid;
+}
+
+.EP_Tobacco {
+    position: absolute;
+    top: 200px;
+    left: 133px;
+    color: #EFD0B6;
+    font-size: 14px;
+    border-width: 1px;
+    border-color: #CFA588;
+    border-style: solid;
+}
