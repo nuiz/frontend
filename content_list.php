@@ -23,14 +23,14 @@ $contents = $contents->data;
 <div class="Tinews">
     <a href="images/G_reserch/Image.jpeg" rel="prettyPhoto[pp_gal]"
        title="Google.com opened at 100%">
-        <a href="<?php echo $contents[0]->video_url;?>?iframe=true&width=100%&height=100%" rel="prettyPhoto[iframes]"
+        <a href="<?php echo $contents[0]->content_type == "video"? $contents[0]->video_url: $contents[0]->book_url;?>?iframe=true&width=100%&height=100%" rel="prettyPhoto[iframes]"
         title="<?php echo $contents[0]->content_description;?>">
         <div class="CaptionNews">
 <!--            <span>หัวข้อ</span>-->
 <!--            <div class="PictureNews">-->
 <!--            </div>-->
             <div style="margin-top: 10px;">
-                <img src="images/videoplay/video.png" height="196">
+                <img src="<?php echo $contents[0]->content_type == "video"? $contents[0]->video_thumb_url: $contents[0]->book_cover_url;?>" height="196">
             </div>
             <div class="TextPN"><?php echo $contents[0]->content_name;?></div>
         </div>
@@ -50,7 +50,7 @@ $contents = $contents->data;
             <a href="<?php echo $item->video_url;?>?iframe=true&width=100%&height=100%" rel="prettyPhoto[iframes]"
                title="<?php echo $item->content_description;?>">
                 <div class="Pic">
-                    <div class="Pic-img" style="background-image: url(images/videoplay/video.png);"></div>
+                    <div class="Pic-img" style="background-image: url(<?php echo $item->content_type == "video"? $item->video_thumb_url: $item->book_cover_url;?>);"></div>
                     <div class="TextPic"><?php echo $item->content_name;?></div>
                 </div>
             </a>
@@ -68,7 +68,7 @@ $contents = $contents->data;
         <a href="<?php echo $item->video_url;?>?iframe=true&width=100%&height=100%" rel="prettyPhoto[iframes]"
                title="<?php echo $item->content_description;?>">
             <div class="Pic_other Pic_other-item">
-                <div class="Pic_other-item-picture" style="background-image: url(images/videoplay/video.png);"></div>
+                <div class="Pic_other-item-picture" style="background-image: url(<?php echo $item->content_type == "video"? $item->video_thumb_url: $item->book_cover_url;?>);"></div>
                 <div class="TextPicOther"><?php echo $item->content_name;?></div>
             </div>
         </a>
