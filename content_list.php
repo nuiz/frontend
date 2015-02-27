@@ -47,7 +47,7 @@ $contents = $contents->data;
         <div class="Caption">
 <!--            <div>หัวข้อ</div>-->
             <?php foreach($contents as $i => $item){?>
-            <a href="<?php echo $item->video_url;?>?iframe=true&width=100%&height=100%" rel="prettyPhoto[iframes]"
+            <a href="<?php echo $item->content_type == "video"? $item->video_url: $item->book_url;?>?iframe=true&width=100%&height=100%" rel="prettyPhoto[iframes]"
                title="<?php echo $item->content_description;?>">
                 <div class="Pic">
                     <div class="Pic-img" style="background-image: url(<?php echo $item->content_type == "video"? $item->video_thumb_url: $item->book_cover_url;?>);"></div>
@@ -65,7 +65,7 @@ $contents = $contents->data;
 
 <div class="CaptionOther">
     <?php foreach($contents as $i => $item){ if($item->category_id != $_GET["category_id"]) continue; ?>
-        <a href="<?php echo $item->video_url;?>?iframe=true&width=100%&height=100%" rel="prettyPhoto[iframes]"
+        <a href="<?php echo $item->content_type == "video"? $item->video_url: $item->book_url;?>?iframe=true&width=100%&height=100%" rel="prettyPhoto[iframes]"
                title="<?php echo $item->content_description;?>">
             <div class="Pic_other Pic_other-item">
                 <div class="Pic_other-item-picture" style="background-image: url(<?php echo $item->content_type == "video"? $item->video_thumb_url: $item->book_cover_url;?>);"></div>
