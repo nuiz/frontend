@@ -2,15 +2,358 @@
 <html>
 <head>
     <title>Page Title</title>
-    <link rel="stylesheet" href="SubPage.css">
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" runat="viewportid" content="width=1366, initial-scale=1"/>
+
+    <link rel="stylesheet" href="SubPage.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="min/iconFont.min.css">
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/helper.js"></script>
+    <script src="js/pdf.js"></script>
 </head>
 <div class="body"></div>
-<div class="bgSubPage"></div>
-<div class="LBbook"></div>
+<div class="bgSubPage">
+    <div class="LBbook"></div>
+    <div id="book-list">
 
+    </div>
+</div>
+<style>
+#book-list {
+    position: absolute;
+    top: 110px;
+    height: 345px;
+    width: 823px;
+}
+.book {
+    width: 84px;
+    height: 105px;
+    background-size: cover;
+    position: absolute;
+    top: 10px;
+
+    cursor: pointer;
+}
+</style>
+<style>
+    .item {
+        float: left;
+        width: 100px;
+        height: 145px;
+        margin: 10px 20px;
+
+        position: relative;
+    }
+
+    .item .thumb {
+        width: 100%;
+        height: 100%;
+        background-position: center;
+
+        /* Make the background image cover the area of the <div>, and clip the excess */
+        background-size: cover;
+
+        display: block;
+    }
+
+    .item .item-menu {
+        display: none;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        background: rgba(255, 0, 33, 0.60);
+
+        padding: 2px 5px;
+    }
+
+    .item:hover .item-menu {
+        display: block;
+    }
+
+    .item-menu a {
+        color: white;
+    }
+
+    .lightbox-bg {
+        position: fixed;
+        background: rgba(0,0,0,0.5);
+        width: 100%;
+        height: 100%;
+
+        display: none;
+        top: 0; left: 0;
+
+        z-index: 1000;
+        /*transition: 0.5s linear;*/
+    }
+
+    .lightbox-bg.show {
+        display: block;
+    }
+
+    #canvas-wrap {
+        height: 90%;
+        margin: 10px auto;
+        display: block;
+    }
+
+    #the-canvas {
+        /*border:1px  solid black;*/
+        /*width: 815px;*/
+        display: block;
+        clear: both;
+    }
+
+    .lgbox-menu {
+        position: absolute;
+        display: block;
+        top: 40%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+    .lgbox-menu .prev-btn {
+        position: absolute;
+        left: -60px;
+        color: white;
+        text-shadow: 0 1px #000000;
+        font-size: 60px;
+        cursor: pointer;
+    }
+
+    .lgbox-menu .next-btn {
+        position: absolute;
+        right: -60px;
+        color: white;
+        text-shadow: 0 1px #000000;
+        font-size: 60px;
+        cursor: pointer;
+    }
+
+    .num-page-display {
+        background: white;
+        color: black;
+        text-align: right;
+        width: 100%;
+        border-bottom: 1px solid;
+    }
+
+    .fullscreenBtn {
+        margin: 5px;
+        padding: 5px;
+        border: 1px solid;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+</style>
+<script>
+$(function(){
+    var $bookTP = $('<div class="book"></div>');
+    var $bookList = $('#book-list');
+    var leftPx = [122,286,450,614,
+        164,572,
+        122,286,450,614];
+    var topPx = [14,14,14,14,
+        130,130,
+        244,244,244,244];
+
+    var BookModel = function(seqIndex, content, $el){
+        this.content_name = content.content_name;
+        this.content_id = content.content_id;
+        this.content_description = content.content_description;
+        this.book_url = content.book_url;
+        this.book_cover_url = content.book_cover_url;
+
+        this.$el = $el;
+        this.seqIndex = seqIndex;
+
+        this.apply();
+
+        this.$el.click(function(){
+            window.showPDF(content.book_url);
+        });
+    };
+    BookModel.prototype.apply = function(){
+        this.$el.css('background-image', 'url("'+this.book_cover_url+'")');
+        this.$el.css('left', leftPx[this.seqIndex]);
+        this.$el.css('top', topPx[this.seqIndex]);
+    };
+
+    var books = [];
+    $.get(helper.baseApiUrl+'/ebook', function(data){
+        console.log(data);
+        $(data.data).each(function(index, item){
+            if(leftPx.length <= index)
+                return;
+
+            var $el = $bookTP.clone();
+            var model = new BookModel(index, item, $el);
+
+            books.push(model);
+            $bookList.append($el);
+//            console.log(model);
+        });
+    }, 'json');
+});
+</script>
+<script>
+    $(function(){
+        var $lgBox = $('<div class="lightbox-bg"></div>');
+        var $canvasWrap = $('<div id="canvas-wrap" class="z-depth-2"></div>');
+        var $canvas = $('<canvas id="the-canvas"></canvas>');
+
+        var $numPageDisplay = $('<div class="num-page-display z-depth-2"><span class="display-page"></span></div>');
+        var $fullscreenBtn = $('<a class="fullscreenBtn icon-fullscreen-alt"></a>');
+        var $lgBoxmenu = $('<div class="lgbox-menu"><a class="prev-btn icon-arrow-left-5"></a><a class="next-btn icon-arrow-right-5"></a></div>');
+
+        $numPageDisplay.append($fullscreenBtn);
+        $canvasWrap.append($numPageDisplay);
+        $canvasWrap.append($canvas);
+
+        $lgBox.append($canvasWrap);
+        $lgBox.append($lgBoxmenu);
+
+        $lgBox.appendTo('body');
+
+        var pageNum;
+        var maxPage;
+        var pdfItem;
+        var pageRendering = false;
+        var pageNumPending = null;
+
+        window.showPDF = function(url){
+            $('.lightbox-bg').addClass('show');
+//            PDFJS.workerSrc = 'http://mozilla.github.io/pdf.js/build/pdf.worker.js';
+            PDFJS.workerSrc = 'js/pdf.worker.js';
+            PDFJS.getDocument(url).then(function getPdfHelloWorld(pdf) {
+                pdfItem = pdf;
+                maxPage = pdfItem.numPages;
+                pageRender(1);
+            });
+        }
+
+        function pageRender(num){
+            pageRendering = true;
+
+            console.log(num);
+            pageNum = num;
+            pdfItem.getPage(num).then(function getPageHelloWorld(page) {
+                var scale = $canvasWrap.height() / page.getViewport(1.0).height;
+
+                var viewport = page.getViewport(scale);
+                var canvas = $canvas.get(0);
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+                $canvasWrap.width(viewport.width);
+
+                var context = canvas.getContext('2d');
+                $lgBoxmenu.width(viewport.width);
+
+                var renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+                var renderTask = page.render(renderContext);
+                $numPageDisplay.find('.display-page').text("หน้า "+num+" จาก "+maxPage);
+
+                // Wait for rendering to finish
+                renderTask.promise.then(function () {
+                    pageRendering = false;
+                    if (pageNumPending !== null) {
+                        // New page rendering is pending
+                        renderPage(pageNumPending);
+                        pageNumPending = null;
+                    }
+                });
+            });
+        }
+
+        function queueRenderPage(num) {
+            if (pageRendering) {
+                pageNumPending = num;
+            } else {
+                pageRender(num);
+            }
+        }
+
+        $('.prev-btn').click(function(e){
+            e.preventDefault();
+            if (pageNum <= 1) {
+                return;
+            }
+            pageNum--;
+            queueRenderPage(pageNum);
+        });
+
+        $('.next-btn').click(function(e){
+            e.preventDefault();
+            if (pageNum >= maxPage) {
+                return;
+            }
+            pageNum++;
+            queueRenderPage(pageNum);
+        });
+
+        $lgBox.click(function(e){
+            if(e.target == this){
+                $lgBox.removeClass('show');
+            }
+        });
+
+        $('.show-pdf').click(function (e) {
+            e.preventDefault();
+            showPDF($(this).attr('href'));
+        });
+
+
+        function requestFullScreen(element) {
+            // Supports most browsers and their versions.
+            var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullscreen;
+
+            if (requestMethod) { // Native full screen.
+                requestMethod.call(element);
+            } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+                var wscript = new ActiveXObject("WScript.Shell");
+                if (wscript !== null) {
+                    wscript.SendKeys("{F11}");
+                }
+            }
+        }
+
+        $fullscreenBtn.click(function(e){
+            if($fullscreenBtn.hasClass('icon-fullscreen-alt')){
+                requestFullScreen($lgBox.get(0));
+                setTimeout(function(){
+                    pageRender(pageNum);
+                }, 400);
+
+                $fullscreenBtn.removeClass('icon-fullscreen-alt');
+                $fullscreenBtn.addClass('icon-fullscreen-exit-alt');
+            }
+            else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                }
+
+                setTimeout(function(){
+                    pageRender(pageNum);
+                }, 400);
+
+                $fullscreenBtn.addClass('icon-fullscreen-alt');
+                $fullscreenBtn.removeClass('icon-fullscreen-exit-alt');
+            }
+        });
+    });
+</script>
 <div class="nav-right">
     <div class="nav-right2">
         <div class="nav-right3">
